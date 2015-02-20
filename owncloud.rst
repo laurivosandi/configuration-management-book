@@ -245,29 +245,11 @@ sertifikaadi paigaldusega.
 .. figure:: img/terena-certficate-download.png
 
 Klõpsa Certificate pem format lingil ning laadi alla fail, see on nüüd su
-owncloud.xxx.edu.ee veebiserveri sertifikaat.
+owncloud.xxx.edu.ee veebiserveri sertifikaat,
+aseta see /etc/apache2/ssl/owncloud-xxx-edu-ee.crt failina veebiserverisse.
 Klõpsa Certificate Chain pem format lingil,
-need on su sertifitseerimiskeskuse sertifikaadid.
-Kopeeri viimase faili sisu esimese lõppu
-ning laadi alla see fail ning lisa esimese lõppu ning salvesta see
-veebiserveris /etc/apache2/ssl/owncloud-xxx-edu-ee.crt sisse, nii et sinna
-jäävad nad üksteise otsa riburadapidi:
-
-.. code:: none
-
-    -----BEGIN CERTIFICATE-----
-    sinu veebiserveri sertifikaat
-    -----END CERTIFICATE-----
-    -----BEGIN CERTIFICATE-----
-    part 1 sertifikaat
-    -----END CERTIFICATE-----
-    -----BEGIN CERTIFICATE-----
-    part 2 sertifikaat
-    -----END CERTIFICATE-----
-    -----BEGIN CERTIFICATE-----
-    part 3 sertifikaat
-    -----END CERTIFICATE-----
-
+need on su sertifitseerimiskeskuse sertifikaatide ahel,
+aseta see /etc/apache2/ssl/terena-bundle.crt failina veebiserverisse.
 Lisa veebiserveri konfiguratsioon failis
 /etc/apache2/sites-enabled/000-default.conf:
 
@@ -285,9 +267,10 @@ Lisa veebiserveri konfiguratsioon failis
 	    DocumentRoot /var/www/owncloud
 	    ErrorLog ${APACHE_LOG_DIR}/error.log
 	    CustomLog ${APACHE_LOG_DIR}/access.log combined
-            SSLEngine on
-	    SSLCertificateFile /etc/apache2/ssl/owncloud-xxx-edu-ee.crt
+        SSLEngine on
 	    SSLCertificateKeyFile /etc/apache2/ssl/owncloud-xxx-edu-ee.key
+	    SSLCertificateFile /etc/apache2/ssl/owncloud-xxx-edu-ee.crt
+	    SSLCertificateChainFile /etc/apache2/ssl/terena-bundle.crt
     </VirtualHost>
 
 Lülita sisse Apache2 moodulid:

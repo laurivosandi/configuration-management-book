@@ -151,3 +151,7 @@ and follow instructions on the screen.
 .. figure:: img/butterknife5.png
 
     Last tee option pipes HTTP stream to multicast
+
+.. figure:: img/butterknife6.png
+
+    Final screen before reboot

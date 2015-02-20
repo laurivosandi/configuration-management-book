@@ -51,7 +51,7 @@ We had to find suitable combination of software and technologies
 that would satisfy the needs of schools and guarantee certain degree of freedom
 from external software vendors eg Microsoft, Google and similar.
 
-.. figure:: ../../posts/dia/edu-ee.svg
+.. figure:: dia/edu-ee.svg
 
 	Current architecture
 
@@ -94,7 +94,7 @@ information on various educational network web services.
 Samba4 provides out-of-the-box Kerberos5 support which means that
 it is possible to develop real single sign-on ecosystem connected to TAAT service.
 
-.. figure:: ../../posts/dia/edu-ee-goal.svg
+.. figure:: dia/edu-ee-goal.svg
 
 	Ideal architecture
 
